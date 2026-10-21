@@ -1,9 +1,11 @@
 import json
 import os
+import sys
 from dataclasses import dataclass, field, asdict
 from typing import Optional
 
-LAYOUT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "layout.json")
+_BASE = os.path.dirname(sys.executable if getattr(sys, "frozen", False) else os.path.abspath(__file__))
+LAYOUT_PATH = os.path.join(_BASE, "layout.json")
 
 
 @dataclass
